@@ -24,11 +24,11 @@
               <app-input [validate]="validateBreathsCount" (setValue)="setBreaths($event)"></app-input>
             </div>
             <app-button text="start" (onClick)="handleBreathingActivation()"></app-button>
-          </div>
           <div *ngIf="notCorrentNumberError"><p>hmm... are you sure it is a correct number?</p></div>
           <div *ngIf="maxBreathsExceeded">
             <h3 class="text--light">don't you think it is too much?</h3>
             <app-button text="no" (onClick)="activateBreathing()"></app-button>
+          </div>
           </div>
         </ng-template>
       </section>
