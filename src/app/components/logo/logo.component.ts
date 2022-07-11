@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./logo.component.scss'],
 })
 export class LogoComponent implements OnInit {
-  @Input() active!: boolean;
+  @Input() isAnimationActive!: boolean;
 
   constructor() {}
 

@@ -1,0 +1,31 @@
+.breathe-circle__container {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(rgba(255, 255, 255, 0.13), #fff);
+  border-radius: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .breathe-circle__container {
+    animation: breathe infinite 10s;
+  }
+}
+
+@media (max-width: 768px) {
+  .breathe-circle__container {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@keyframes breathe {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}

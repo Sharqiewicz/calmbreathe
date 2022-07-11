@@ -8,9 +8,10 @@ import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from './components/input/input.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { BreathService } from './services/breath.service';
+import { BreatherComponent } from './components/breather/breather.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ButtonComponent, InputComponent, LogoComponent],
+  declarations: [AppComponent, HeaderComponent, ButtonComponent, InputComponent, LogoComponent, BreatherComponent],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [BreathService],
   bootstrap: [AppComponent],

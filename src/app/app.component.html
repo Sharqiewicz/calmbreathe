@@ -1,19 +1,37 @@
 <div class="container">
   <app-header></app-header>
-  <main>
+  <main *ngIf="isSessionFinished; else content">
     <section>
-      <div *ngIf="isBreathingMode; else welcome"></div>
-      <ng-template #welcome> <app-logo></app-logo> </ng-template>
-    </section>
-    <section>
-      <h2 class="text--light">how many breaths do you want to take?</h2>
-      <app-input [validate]="validateBreathsCount" (setValue)="setBreaths($event)"></app-input>
-      <app-button text="start" (onClick)="activateBreathing($event)"></app-button>
-      <div *ngIf="notCorrentNumberError"><p>hmm... are you sure it is a correct number?</p></div>
-      <div *ngIf="maxBreathsExceeded">
-        <h3 class="text--light">don't you think it is too much?</h3>
-        <app-button text="no"></app-button>
-      </div>
+      <h2>Thank you</h2>
     </section>
   </main>
+  <ng-template #content>
+    <main>
+      <section>
+        <div *ngIf="isBreathingMode; else welcome" class="breather__container">
+          <app-breather></app-breather>
+        </div>
+        <ng-template #welcome> <app-logo [isAnimationActive]="isAnimationActive"></app-logo> </ng-template>
+      </section>
+      <section>
+        <div *ngIf="isBreathingMode; else welcomeForm">
+          <h1 class="breaths-counter__text">{{ currentBreath }} / {{ breaths }}</h1>
+        </div>
+        <ng-template #welcomeForm>
+          <div *ngIf="!isAnimationActive">
+            <h2 class="text--light">how many breaths do you want to take?</h2>
+            <div class="set-breaths-input__container">
+              <app-input [validate]="validateBreathsCount" (setValue)="setBreaths($event)"></app-input>
+            </div>
+            <app-button text="start" (onClick)="handleBreathingActivation()"></app-button>
+          </div>
+          <div *ngIf="notCorrentNumberError"><p>hmm... are you sure it is a correct number?</p></div>
+          <div *ngIf="maxBreathsExceeded">
+            <h3 class="text--light">don't you think it is too much?</h3>
+            <app-button text="no"></app-button>
+          </div>
+        </ng-template>
+      </section>
+    </main>
+  </ng-template>
 </div>
