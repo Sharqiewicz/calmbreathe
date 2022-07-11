@@ -1,0 +1,15 @@
+.logo__image {
+  width: 100%;
+}
+
+.active {
+  animation: diminish 5s ease-in-out;
+}
+
+@keyframes diminish {
+  from {
+  }
+  to {
+    opacity: 0;
+  }
+}
